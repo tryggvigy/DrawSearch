@@ -5,7 +5,7 @@
 angular
   .module('DrawApp', ['ngRoute'])
   .controller('DrawCtrl', DrawCtrl)
-  .directive('drawing', Drawing)
+  .directive('dsDrawing', dsDrawing)
   .factory('drawingFactory', drawingFactory)
 
   .config(['$routeProvider',
@@ -19,3 +19,5 @@ angular
         templateUrl: 'partials/templates/404.html'
       });
   }]);
+
+DrawCtrl.$inject = ['drawingFactory'];

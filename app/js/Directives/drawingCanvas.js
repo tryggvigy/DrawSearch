@@ -1,6 +1,6 @@
 'use strict';
 
-function Drawing () {
+function dsDrawing () {
   return {
     restruct: 'A',
     link: function(scope, element, attrs){
@@ -51,6 +51,7 @@ function Drawing () {
       //canvas reset
       function reset() {
         element[0].width = element[0].width;
+        //ctx.clearRect ( x , y , w , h );
       }
 
       function draw(lX, lY, cX, cY) {

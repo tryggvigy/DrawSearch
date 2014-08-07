@@ -15,7 +15,7 @@
     "expect": false,
 
     "DrawCtrl" : true,
-    "Drawing" : true,
+    "dsDrawing" : true,
     "drawingFactory" : true
   }
 }
