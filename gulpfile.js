@@ -1,3 +1,5 @@
+/*jshint ignore: start*/
+
 // PATHS
 var basePaths = {
     src: 'app/',
@@ -11,11 +13,15 @@ var paths = {
     },
     styles: {
         src: basePaths.src + 'sass/**/*.scss',
-        dest: basePaths.dest + 'css/min/' //unused.
+        dest: basePaths.dest + 'css/' //unused.
     },
     templates: {
-        src: basePaths.src + 'partials/**/*.html',
-        dest: basePaths.dest + 'partials/'
+        src: basePaths.src + 'partials/templates/*.html',
+        dest: basePaths.dest + 'partials/templates'
+    },
+    directivesHTML: {
+        src: basePaths.src + 'partials/directivesHTML/*.html',
+        dest: basePaths.dest + 'partials/directivesHTML'
     }
 };
 var vendorFiles = {
@@ -58,18 +64,22 @@ if(gutil.env.dev === true) {
 gulp.task('copy', function () {
     gulp.src([paths.templates.src])
         .pipe(gulp.dest(paths.templates.dest));
+    gulp.src([paths.directivesHTML.src])
+        .pipe(gulp.dest(paths.directivesHTML.dest));
+    gulp.src([basePaths.src + 'static/**/*'])
+        .pipe(gulp.dest(basePaths.dest + 'static/'));
 });
 
 // Lint JS
 gulp.task('lint', function() {
-  return gulp.src(paths.scripts.src + '/**/*.js')
+  gulp.src([paths.scripts.src])
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('jshint-stylish'));
 });
 
 // Concat & Minify JS
 gulp.task('scripts', function(){
-  return gulp.src(paths.scripts.src)
+  gulp.src(paths.scripts.src)
     .pipe(isProduction ? plugins.concat('main.min.js') : plugins.concat('main.js'))
     .pipe(gulp.dest(basePaths.dest))
     .pipe(isProduction ? plugins.uglify() : gutil.noop())
@@ -77,6 +87,7 @@ gulp.task('scripts', function(){
     .pipe(gulp.dest(basePaths.dest));
 });
 
+// Convert, Concat and Minify sass files -- UNUSED
 gulp.task('css', function(){
 
     var sassFiles = gulp.src('app/sass/main.scss')
@@ -86,9 +97,8 @@ gulp.task('css', function(){
     .on('error', function(err){
         new gutil.PluginError('CSS', err, {showStack: true});
     });
-
     return es.concat(gulp.src(vendorFiles.styles), sassFiles)
-        .pipe(isProduction ? plugins.concat('style.min.css') : plugins.concat('style.css'))
+        .pipe(isProduction ? plugins.concat('css/main.min.css') : plugins.concat('css/main.css'))
         .pipe(plugins.autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1'))
         .pipe(isProduction ? plugins.combineMediaQueries({
             log: true
@@ -98,14 +108,29 @@ gulp.task('css', function(){
         .pipe(gulp.dest(basePaths.dest));
 });
 
+// Create the icon font from svg
+var fontName = 'myfont';
+gulp.task('iconfont', function(){
+  gulp.src(['app/static/images/svg/*.svg'])
+    .pipe(plugins.iconfontCss({
+      fontName: fontName,
+      targetPath: '../../../sass/base/_icons.scss',
+      fontPath: '../static/fonts/Icons/'
+    }))
+    .pipe(plugins.iconfont({
+      fontName: fontName
+     }))
+    .pipe(gulp.dest('app/static/fonts/Icons'));
+});
+
 // Watch Our Files
 gulp.task('watch', function() {
     gulp.watch(paths.scripts.src, ['lint', 'scripts']).on('change', function(evt) {
         changeEvent(evt);
     });
-    gulp.watch(paths.styles.src, ['css']).on('change', function(evt) {
+    /*gulp.watch(paths.styles.src, ['css']).on('change', function(evt) {
         changeEvent(evt);
-    });
+    });*/
     gulp.watch(['app/index.html', paths.templates.src], ['copy']).on('change', function(evt) {
         changeEvent(evt);
     });
@@ -113,4 +138,4 @@ gulp.task('watch', function() {
 
 
 // Default
-gulp.task('default', ['copy', 'lint', 'scripts', /*'css',*/ 'watch']);
+gulp.task('default', ['copy', 'iconfont', 'scripts', 'lint', /*'css',*/ 'watch']);

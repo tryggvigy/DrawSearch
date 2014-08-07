@@ -1,0 +1,25 @@
+#drawingArea {
+  @include center-block();
+  width: 600px;
+  height: 500px;
+}
+
+canvas {
+  @include linear-gradient(#fffde9, #fff5b7);
+  cursor: crosshair;
+}
+
+
+#topToolbar {
+  @include my-horizontal-list();
+  margin-bottom: 5px;
+
+  li {
+    @include circular-tool();
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+}

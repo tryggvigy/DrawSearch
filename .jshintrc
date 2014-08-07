@@ -12,6 +12,10 @@
     "describe": false,
     "beforeEach": false,
     "it": false,
-    "expect": false
+    "expect": false,
+
+    "DrawCtrl" : true,
+    "Drawing" : true,
+    "drawingFactory" : true
   }
 }

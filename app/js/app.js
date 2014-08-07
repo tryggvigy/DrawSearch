@@ -2,17 +2,20 @@
 
 /* App Module */
 
-var app = angular.module('DrawApp', [
-  'ngRoute',
-]);
+angular
+  .module('DrawApp', ['ngRoute'])
+  .controller('DrawCtrl', DrawCtrl)
+  .directive('drawing', Drawing)
+  .factory('drawingFactory', drawingFactory)
 
-app.config(['$routeProvider', function($routeProvider) {
+  .config(['$routeProvider',
+  function($routeProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: 'partials/draw.html',
+        templateUrl: 'partials/templates/draw.html',
         controller: 'DrawCtrl'
       }).
       otherwise({
-        templateUrl: 'partials/404.html'
+        templateUrl: 'partials/templates/404.html'
       });
   }]);

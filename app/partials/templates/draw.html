@@ -1,0 +1,9 @@
+<div ng-controller="DrawCtrl as draw" id="drawingArea">
+  <ul id="topToolbar">
+    <li ng-class="" class="icon icon-uE001-pencil" ng-repeat="tool in draw.topToolbar">{{tool}}</li>
+  </ul>
+  <canvas drawing id="myCanvas" width="600px" height="500px"></canvas>
+  <div class="test">
+
+  </div>
+</div>

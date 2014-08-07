@@ -6,6 +6,7 @@
 http_path = "/"
 css_dir = "dist/css"
 sass_dir = "app/sass"
+fonts_dir = "app/static/fonts"
 images_dir = "images"
 javascripts_dir = "javascripts"
 

@@ -1,0 +1,19 @@
+//placeholders hold common style entities.
+
+%icon {
+  transition: background-color ease .2s;
+  margin: 0 .5em;
+}
+
+//use
+/*
+.error-icon {
+  @extend %icon;
+  ...
+}
+
+.info-icon {
+  @extend %icon;
+  ...
+}
+*/
