@@ -4,7 +4,8 @@ function drawingFactory() {
 
   var factory = {
     clearCanvas: clearCanvas,
-    setPencilSize: setPencilSize
+    setPencilSize: setPencilSize,
+    setStrokeStyle: setStrokeStyle
   };
   return factory;
 

@@ -5,19 +5,19 @@
 */
 
 
-toolsFactory.$inject = ['brushFactory'];
+toolsFactory.$inject = ['neighborPointsTool', 'pencilTool'];
 
-function toolsFactory(brushFactory) {
+function toolsFactory(neighborPointsTool, pencilTool) {
 
   ///////// PRIVATE ///////////
   var _tools = {
-    pencil: brushFactory.pencil,
-    pencil2: brushFactory.pencil2
+    pencil: pencilTool.pencilTool,
+    neighborPoints: neighborPointsTool.neighborPointsTool
   };
 
   /////////// PUBLIC //////////////
-  function setTool(name, element) {
-    return _tools[name](element);
+  function setTool(name) {
+    return _tools[name]();
   }
 
   return {

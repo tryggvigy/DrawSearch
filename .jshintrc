@@ -18,7 +18,11 @@
     "dsDrawing" : true,
     "drawingFactory" : true,
     "toolsFactory" : true,
-    "brushFactory" : true,
-    "toolUtils" : true
+    "toolUtils" : true,
+
+    "pencilTool" : true,
+    "neighborPointsTool" : true
+
+
   }
 }

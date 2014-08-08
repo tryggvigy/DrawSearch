@@ -8,8 +8,11 @@ angular
   .directive('dsDrawing', dsDrawing)
   .factory('drawingFactory', drawingFactory)
   .factory('toolsFactory', toolsFactory)
-  .factory('brushFactory', brushFactory)
   .factory('toolUtils', toolUtils)
+
+  // TOOLS
+  .factory('pencilTool', pencilTool)
+  .factory('neighborPointsTool', neighborPointsTool)
 
   .config(['$routeProvider',
   function($routeProvider) {
