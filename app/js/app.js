@@ -7,6 +7,9 @@ angular
   .controller('DrawCtrl', DrawCtrl)
   .directive('dsDrawing', dsDrawing)
   .factory('drawingFactory', drawingFactory)
+  .factory('toolsFactory', toolsFactory)
+  .factory('brushFactory', brushFactory)
+  .factory('toolUtils', toolUtils)
 
   .config(['$routeProvider',
   function($routeProvider) {
@@ -19,5 +22,3 @@ angular
         templateUrl: 'partials/templates/404.html'
       });
   }]);
-
-DrawCtrl.$inject = ['drawingFactory'];

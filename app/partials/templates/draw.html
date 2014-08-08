@@ -1,10 +1,11 @@
 <div ng-controller="DrawCtrl as draw" id="drawingArea">
   <ul id="topToolbar">
+    <li class="icon icon-pencil" ng-click="draw.setTool('pencil')"></li>
+    <li class="icon icon-pencil" ng-click="draw.setTool('pencil2')"></li>
+    <li class="icon icon-pencil" ng-click="draw.setStrokeStyle('#4bf')"></li>
     <li class="icon icon-pencil"></li>
     <li class="icon icon-new" ng-click="draw.clearCanvas()"></li>
     <li class="icon icon-undo" ng-click="draw.setPencilSize()"></li>
   </ul>
-  <canvas ds-drawing id="myCanvas" width="600px" height="500px"></canvas>
-
-  </div>
+  <canvas ds-drawing id="myCanvas" width="600" height="500" tool="draw.tool"></canvas>
 </div>

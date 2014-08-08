@@ -17,4 +17,8 @@ function drawingFactory() {
   function setPencilSize(ctx) {
     ctx.lineWidth = 15;
   }
+
+  function setStrokeStyle(ctx, color) {
+    ctx.strokeStyle = color;
+  }
 }
