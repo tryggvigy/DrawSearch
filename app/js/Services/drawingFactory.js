@@ -29,7 +29,7 @@ function drawingFactory() {
     redoHistory.push(canvas.toDataURL());
     currState--;
     var pastState = undoHistory.pop();
-
+    
     var canvasPic = new Image();
     canvasPic.src = pastState;
     canvasPic.onload = function () {
@@ -55,8 +55,6 @@ function drawingFactory() {
 
   var factory = {
     clearCanvas: clearCanvas,
-    setPencilSize: setPencilSize,
-    setStrokeStyle: setStrokeStyle,
     saveState: saveState,
     undoState: undoState,
     redoState: redoState

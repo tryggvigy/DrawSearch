@@ -6,18 +6,23 @@
 
 #drawingArea {}
 
-h1 {
-  margin-bottom: 6%;
-  padding-top: 3%;
-  font-size: $h1-fontsize;
-  font-weight: inherit;
-  text-align: center;
-}
 
-canvas {
-  @include linear-gradient(#fffde9, #fff5b7);
-  cursor: crosshair;
-}
+  h1 {
+    margin-bottom: 6%;
+    padding-top: 3%;
+    font-size: $h1-fontsize;
+    font-weight: inherit;
+    text-align: center;
+  }
+
+  canvas {
+    @include linear-gradient(#fffde9, #fff5b7);
+    cursor: crosshair;
+  }
+
+  slider {
+    font-size: 2rem;
+  }
 
 
 #topToolbar {
@@ -32,4 +37,11 @@ canvas {
     }
   }
 
+}
+
+#selectColor {
+  input::-webkit-input-placeholder {
+   font-size: 10px;
+   font-color: black;
+  }
 }

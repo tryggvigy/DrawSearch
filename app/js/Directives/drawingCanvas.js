@@ -8,6 +8,7 @@ function dsDrawing (drawingFactory, toolsFactory) {
     link: function(scope, element, attrs) {
 
       scope.$watch('draw.tool', function(newTool, oldTool) {
+        var a = scope.$parent; //TO-DO: ACCESS COLOR;
         toolsFactory.setTool(newTool);
       });
 

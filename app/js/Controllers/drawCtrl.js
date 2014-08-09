@@ -6,6 +6,8 @@ function DrawCtrl(drawingFactory) {
   var vm = this;
   var canvas = document.getElementById('myCanvas');
   var ctx = canvas.getContext('2d');
+  var colorpicker = document.getElementById('selectColor');
+  var lineWithSlider = document.getElementById('selectLineWith');
 
   vm.topBtns = [
     {'icon': 'icon-new',
@@ -14,11 +16,13 @@ function DrawCtrl(drawingFactory) {
   ];
 
   vm.tool = 'pencil';
+  vm.color = '';
+  vm.lineWith = '';
 
+  //functions
   vm.clearCanvas = clearCanvas;
   vm.setPencilSize = setPencilSize;
   vm.setTool = setTool;
-  vm.setStrokeStyle = setStrokeStyle;
   vm.undoState = undoState;
   vm.redoState = redoState;
 
@@ -30,9 +34,6 @@ function DrawCtrl(drawingFactory) {
     drawingFactory.setPencilSize(ctx);
   }
 
-  function setStrokeStyle(color) {
-    ctx.strokeStyle = color;
-  }
 
   function setTool(tool) {
     vm.tool = tool;
@@ -45,5 +46,17 @@ function DrawCtrl(drawingFactory) {
   function redoState() {
     drawingFactory.redoState(canvas, ctx);
   }
+
+  colorpicker.onblur = function(e) {
+    ctx.strokeStyle = vm.color;
+  };
+
+  lineWithSlider.onmouseup = function(e) {
+    ctx.lineWidth = vm.lineWith;
+  };
+
+
+
+
 
 }

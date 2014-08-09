@@ -13,7 +13,6 @@ function pencilTool(drawingFactory) {
   //////// PUBLIC /////////
   function getPencilTool() {
 
-    ctx.lineWidth = 2;
     ctx.lineJoin = ctx.lineCap = 'round';
 
     el.onmousedown = function(e) {

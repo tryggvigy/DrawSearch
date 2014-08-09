@@ -66,8 +66,18 @@
 }
 
 
+//BACKGROUND
+@mixin pageBackground($imgPath) {
+  background: url($imgPath) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
 //MISC
-@mixin noselect {
+@mixin noselect() {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -khtml-user-select: none;

@@ -1,6 +1,6 @@
 'use strict';
 
-neighborPointsTool.$inject = ['drawingFactory'];
+neighborPointsTool.$inject = ['drawingFactory', 'toolUtils'];
 
 function neighborPointsTool(drawingFactory) {
 
@@ -12,7 +12,6 @@ function neighborPointsTool(drawingFactory) {
 
   /////////// PUBLIC ///////////
   function getNeighborPointsTool() {
-    ctx.lineWidth = 1;
     ctx.lineJoin = ctx.lineCap = 'round';
 
     el.onmousedown = function(e) {
