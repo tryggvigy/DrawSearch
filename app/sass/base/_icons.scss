@@ -24,10 +24,22 @@
 	content: "\E001";
 }
 
-.icon-pencil:before {
+.icon-pen:before {
 	content: "\E002";
 }
 
-.icon-undo:before {
+.icon-pencil:before {
 	content: "\E003";
+}
+
+.icon-point-up:before {
+	content: "\E004";
+}
+
+.icon-redo:before {
+	content: "\E005";
+}
+
+.icon-undo:before {
+	content: "\E006";
 }

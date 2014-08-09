@@ -1,13 +1,8 @@
 //style for the canvas, this comment will not appear in css, /*this would.*/
 body {
   @include linear-gradient(#7c7c7c, #1d1d1d);
-  font-family: $heading-font;
-
-  h1 {
-    font-size: $h1-fontsize;
-    font-weight: inherit;
-    text-align: center;
-  }
+  font-family: $base-font;
+  @include noselect();
 
   #pagewrap {
     @include page-wrap-footer-css(-$footer-height);

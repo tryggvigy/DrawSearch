@@ -21,6 +21,9 @@ angular
         templateUrl: 'partials/templates/draw.html',
         controller: 'DrawCtrl'
       }).
+      when('/testPage', {
+        templateUrl: 'partials/templates/testPage.html',
+      }).
       otherwise({
         templateUrl: 'partials/templates/404.html'
       });

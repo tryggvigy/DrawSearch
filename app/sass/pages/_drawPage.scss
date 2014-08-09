@@ -1,7 +1,17 @@
-#drawingArea {
+#drawingApp {
   @include center-block();
   width: 600px;
   height: 500px;
+}
+
+#drawingArea {}
+
+h1 {
+  margin-bottom: 6%;
+  padding-top: 3%;
+  font-size: $h1-fontsize;
+  font-weight: inherit;
+  text-align: center;
 }
 
 canvas {

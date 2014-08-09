@@ -1,11 +1,14 @@
 'use strict';
 
-function neighborPointsTool() {
+neighborPointsTool.$inject = ['drawingFactory'];
+
+function neighborPointsTool(drawingFactory) {
 
   ///////// PRIVATE ///////////
   var el = document.getElementById('myCanvas');
   var ctx = el.getContext('2d');
   var isDrawing, points = [ ];
+  var _drawingFactory = drawingFactory;
 
   /////////// PUBLIC ///////////
   function getNeighborPointsTool() {
@@ -13,6 +16,7 @@ function neighborPointsTool() {
     ctx.lineJoin = ctx.lineCap = 'round';
 
     el.onmousedown = function(e) {
+      _drawingFactory.saveState(el);
       points = [ ];
       isDrawing = true;
       points.push({ x: e.clientX-el.offsetLeft, y: e.clientY-el.offsetTop });

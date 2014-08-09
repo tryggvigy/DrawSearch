@@ -1,19 +1,23 @@
 'use strict';
 
-function pencilTool() {
+pencilTool.$inject = ['drawingFactory'];
+
+function pencilTool(drawingFactory) {
 
   /////// PRIVATE /////////////
   var el = document.getElementById('myCanvas');
   var ctx = el.getContext('2d');
   var isDrawing, points = [ ];
+  var _drawingFactory = drawingFactory;
 
   //////// PUBLIC /////////
   function getPencilTool() {
 
-    ctx.lineWidth = 10;
+    ctx.lineWidth = 2;
     ctx.lineJoin = ctx.lineCap = 'round';
 
     el.onmousedown = function(e) {
+      _drawingFactory.saveState(el);
       isDrawing = true;
       points.push({ x: e.clientX-el.offsetLeft, y: e.clientY-el.offsetTop });
     };
