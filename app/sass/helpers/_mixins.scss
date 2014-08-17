@@ -50,10 +50,11 @@
 }
 
 //TOOLS
-@mixin circular-tool() {
+@mixin circular-tool() {  //not circular anymore, no border due to bootstrap css conflicts for popover.
+  padding: 0;
   width: 30px;
   height: 30px;
-  border: 3px;
+  border: 0px;
   border-style: solid;
   border-radius: 50%;
   margin-right: 10px;
@@ -68,7 +69,7 @@
 
 //BACKGROUND
 @mixin pageBackground($imgPath) {
-  background: url($imgPath) no-repeat center center fixed; 
+  background: url($imgPath) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

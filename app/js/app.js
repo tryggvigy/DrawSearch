@@ -3,7 +3,7 @@
 /* App Module */
 
 angular
-  .module('DrawApp', ['ngRoute', 'ngTouch', 'vr.directives.slider', 'colorpicker.module'])
+  .module('DrawApp', ['ngRoute', 'ngTouch', 'ui.bootstrap', 'vr.directives.slider', 'colorpicker.module'])
   .controller('DrawCtrl', DrawCtrl)
   .directive('dsDrawing', dsDrawing)
   .factory('drawingFactory', drawingFactory)
@@ -13,6 +13,7 @@ angular
   // TOOLS
   .factory('pencilTool', pencilTool)
   .factory('neighborPointsTool', neighborPointsTool)
+  .factory('squareTool', squareTool)
 
   //3rd-party
 

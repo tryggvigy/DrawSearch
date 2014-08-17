@@ -2,13 +2,14 @@
   <h1>Search By Drawing!</h1>
   <div id="drawingArea">
   <ul id="topToolbar">
-    <li class="icon icon-pencil" ng-click="draw.setTool('pencil')"></li>
-    <li class="icon icon-pen" ng-click="draw.setTool('neighborPoints')"></li>
-    <li class="icon icon-point-up"></li>
-    <li class="icon icon-new" ng-click="draw.clearCanvas()"></li>
-    <li class="icon icon-undo" ng-click="draw.undoState()"></li>
-    <li class="icon icon-redo" ng-click="draw.redoState()"></li>
-    <li class="icon {{topBtn.icon}}" ng-repeat="topBtn in draw.topBtns"></li>
+    <li popover="Pencil" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil" ng-click="draw.setTool('pencil')"></li>
+    <li popover="Fancy Brush" popover-trigger="mouseenter" class="btn btn-default icon icon-pen" ng-click="draw.setTool('neighborPoints')"></li>
+    <li popover="No Action" popover-trigger="mouseenter" class="btn btn-default icon icon-point-up"></li>
+    <li popover="Box Drawing" popover-trigger="mouseenter" class="btn btn-default icon icon-box"  ng-click="draw.setTool('square')"></li>
+    <li popover="New" popover-trigger="mouseenter" class="btn btn-default icon icon-new" ng-click="draw.clearCanvas()"></li>
+    <li popover="Undo" popover-trigger="mouseenter" class="btn btn-default icon icon-undo" ng-click="draw.undoState()"></li>
+    <li popover="Redo" popover-trigger="mouseenter" class="btn btn-default icon icon-redo" ng-click="draw.redoState()"></li>
+    <li popover="repeat-test" popover-trigger="mouseenter" class="btn btn-default icon {{topBtn.icon}}" ng-repeat="topBtn in draw.topBtns"></li>
   </ul>
   <canvas ds-drawing id="myCanvas" width="600" height="500" tool="draw.tool"></canvas>
   <input id="selectColor" colorpicker="rgb" type="text" ng-model="draw.color" placeholder="select a color."/>

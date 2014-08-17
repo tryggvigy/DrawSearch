@@ -20,26 +20,30 @@
 }
 
 
-.icon-new:before {
+.icon-box:before {
 	content: "\E001";
 }
 
-.icon-pen:before {
+.icon-new:before {
 	content: "\E002";
 }
 
-.icon-pencil:before {
+.icon-pen:before {
 	content: "\E003";
 }
 
-.icon-point-up:before {
+.icon-pencil:before {
 	content: "\E004";
 }
 
-.icon-redo:before {
+.icon-point-up:before {
 	content: "\E005";
 }
 
-.icon-undo:before {
+.icon-redo:before {
 	content: "\E006";
+}
+
+.icon-undo:before {
+	content: "\E007";
 }

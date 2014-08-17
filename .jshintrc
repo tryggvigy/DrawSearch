@@ -21,7 +21,8 @@
     "toolUtils" : true,
 
     "pencilTool" : true,
-    "neighborPointsTool" : true
+    "neighborPointsTool" : true,
+    "squareTool": true
 
 
   }

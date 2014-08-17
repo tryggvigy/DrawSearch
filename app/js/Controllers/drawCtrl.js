@@ -49,6 +49,7 @@ function DrawCtrl(drawingFactory) {
 
   colorpicker.onblur = function(e) {
     ctx.strokeStyle = vm.color;
+    ctx.fillStyle = vm.color;
   };
 
   lineWithSlider.onmouseup = function(e) {
