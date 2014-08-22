@@ -8,7 +8,7 @@ angular
   .directive('dsDrawing', dsDrawing)
   .factory('drawingFactory', drawingFactory)
   .factory('toolsFactory', toolsFactory)
-  .factory('toolUtils', toolUtils)
+  .factory('buttonsFactory', buttonsFactory)
 
   // TOOLS
   .factory('pencilTool', pencilTool)

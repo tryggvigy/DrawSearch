@@ -1,16 +1,21 @@
 <div ng-controller="DrawCtrl as draw" id="drawingApp">
-  <h1>Search By Drawing!</h1>
+  <h1>Paint Something</h1>
   <div id="drawingArea">
+
   <ul id="topToolbar">
-    <li popover="Pencil" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil" ng-click="draw.setTool('pencil')"></li>
-    <li popover="Fancy Brush" popover-trigger="mouseenter" class="btn btn-default icon icon-pen" ng-click="draw.setTool('neighborPoints')"></li>
-    <li popover="No Action" popover-trigger="mouseenter" class="btn btn-default icon icon-point-up"></li>
-    <li popover="Box Drawing" popover-trigger="mouseenter" class="btn btn-default icon icon-box"  ng-click="draw.setTool('square')"></li>
-    <li popover="New" popover-trigger="mouseenter" class="btn btn-default icon icon-new" ng-click="draw.clearCanvas()"></li>
-    <li popover="Undo" popover-trigger="mouseenter" class="btn btn-default icon icon-undo" ng-click="draw.undoState()"></li>
-    <li popover="Redo" popover-trigger="mouseenter" class="btn btn-default icon icon-redo" ng-click="draw.redoState()"></li>
-    <li popover="repeat-test" popover-trigger="mouseenter" class="btn btn-default icon {{topBtn.icon}}" ng-repeat="topBtn in draw.topBtns"></li>
+    <li ng-repeat="btn in draw.topBtns" popover="{{btn.desc}}" popover-trigger="mouseenter" class="btn btn-default icon {{btn.icon}}" ng-click="{{btn.action}}"></li>
   </ul>
+
+  <div class="gridButtons">
+    <ul>
+      <li popover="Mystery" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
+      <li popover="Will" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
+      <li popover="Be" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
+      <li popover="Added" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
+      <li popover="Later" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
+    </ul>
+  </div>
+
   <canvas ds-drawing id="myCanvas" width="600" height="500" tool="draw.tool"></canvas>
   <input id="selectColor" colorpicker="rgb" type="text" ng-model="draw.color" placeholder="select a color."/>
   <slider id="selectLineWith" ng-model="draw.lineWith" floor="1" ceiling="50" step="1" precision="2"></slider>

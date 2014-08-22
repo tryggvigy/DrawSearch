@@ -118,7 +118,8 @@ gulp.task('iconfont', function(){
       fontPath: '../static/fonts/Icons/'
     }))
     .pipe(plugins.iconfont({
-      fontName: fontName
+      fontName: fontName,
+      normalize: true
      }))
     .pipe(gulp.dest('app/static/fonts/Icons'));
 });

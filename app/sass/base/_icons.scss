@@ -24,26 +24,34 @@
 	content: "\E001";
 }
 
-.icon-new:before {
+.icon-brush:before {
 	content: "\E002";
 }
 
-.icon-pen:before {
+.icon-connections:before {
 	content: "\E003";
 }
 
-.icon-pencil:before {
+.icon-new:before {
 	content: "\E004";
 }
 
-.icon-point-up:before {
+.icon-pen:before {
 	content: "\E005";
 }
 
-.icon-redo:before {
+.icon-pencil:before {
 	content: "\E006";
 }
 
-.icon-undo:before {
+.icon-point-up:before {
 	content: "\E007";
+}
+
+.icon-redo:before {
+	content: "\E008";
+}
+
+.icon-undo:before {
+	content: "\E009";
 }

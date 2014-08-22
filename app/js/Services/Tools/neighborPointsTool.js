@@ -1,6 +1,6 @@
 'use strict';
 
-neighborPointsTool.$inject = ['drawingFactory', 'toolUtils'];
+neighborPointsTool.$inject = ['drawingFactory'];
 
 function neighborPointsTool(drawingFactory) {
 

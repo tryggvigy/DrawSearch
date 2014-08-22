@@ -1,21 +1,17 @@
 'use strict';
 
-DrawCtrl.$inject = ['drawingFactory'];
+DrawCtrl.$inject = ['drawingFactory', 'buttonsFactory'];
 
-function DrawCtrl(drawingFactory) {
+function DrawCtrl(drawingFactory, buttonsFactory) {
   var vm = this;
   var canvas = document.getElementById('myCanvas');
   var ctx = canvas.getContext('2d');
   var colorpicker = document.getElementById('selectColor');
   var lineWithSlider = document.getElementById('selectLineWith');
 
-  vm.topBtns = [
-    {'icon': 'icon-new',
-     'task': 'setTool',
-     'tool': 'pencil'}
-  ];
+  vm.topBtns = buttonsFactory.getTopBtns();
 
-  vm.tool = 'pencil';
+  vm.tool = 'neighborPoints';
   vm.color = '';
   vm.lineWith = '';
 
@@ -55,9 +51,4 @@ function DrawCtrl(drawingFactory) {
   lineWithSlider.onmouseup = function(e) {
     ctx.lineWidth = vm.lineWith;
   };
-
-
-
-
-
 }

@@ -49,6 +49,24 @@
 
 }
 
+@mixin grid-list($width) {
+  ul {
+    width:  $width;
+    margin: 0 auto;
+    text-align: center;
+    li {
+        display: inline-block;
+        vertical-align: top;
+    }
+  }
+}
+
+@mixin absolute-pos-at($left, $top){
+  position: absolute;
+  left: $left;
+  top: $top;
+}
+
 //TOOLS
 @mixin circular-tool() {  //not circular anymore, no border due to bootstrap css conflicts for popover.
   padding: 0;

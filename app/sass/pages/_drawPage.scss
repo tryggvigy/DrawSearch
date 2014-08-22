@@ -2,11 +2,7 @@
   @include center-block();
   width: 600px;
   height: 500px;
-}
-
-#drawingArea {}
-
-
+  
   h1 {
     margin-bottom: 6%;
     padding-top: 3%;
@@ -14,6 +10,10 @@
     font-weight: inherit;
     text-align: center;
   }
+}
+
+#drawingArea {
+
 
   canvas {
     @include linear-gradient(#fffde9, #fff5b7);
@@ -24,24 +24,35 @@
     font-size: 2rem;
   }
 
+  input {
+    background-color: black;
+  }
 
-#topToolbar {
-  @include my-horizontal-list();
-  margin-bottom: 5px;
 
-  li {
-    @include circular-tool();
+  #topToolbar {
+    @include my-horizontal-list();
+    margin-bottom: 5px;
 
-    &:last-child {
-      margin-right: 0;
+    li {
+      @include circular-tool();
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+  }
+
+  #selectColor {
+    input::-webkit-input-placeholder {
+     font-size: 10px;
+     font-color: black;
     }
   }
 
-}
-
-#selectColor {
-  input::-webkit-input-placeholder {
-   font-size: 10px;
-   font-color: black;
+  .gridButtons {
+    @include absolute-pos-at(75%, 30%);
+    @include grid-list(270px);
   }
+  //END of #drawingArea
 }

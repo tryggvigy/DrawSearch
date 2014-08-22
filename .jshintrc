@@ -17,6 +17,7 @@
     "DrawCtrl" : true,
     "dsDrawing" : true,
     "drawingFactory" : true,
+    "buttonsFactory" : true,
     "toolsFactory" : true,
     "toolUtils" : true,
 
