@@ -1,8 +1,8 @@
 'use strict';
 
-DrawCtrl.$inject = ['drawingFactory', 'buttonsFactory'];
+DrawCtrl.$inject = ['drawingFactory', 'buttonsFactory', '$scope'];
 
-function DrawCtrl(drawingFactory, buttonsFactory) {
+function DrawCtrl(drawingFactory, buttonsFactory, $scope) {
   var vm = this;
   var canvas = document.getElementById('myCanvas');
   var ctx = canvas.getContext('2d');
@@ -12,7 +12,7 @@ function DrawCtrl(drawingFactory, buttonsFactory) {
   vm.topBtns = buttonsFactory.getTopBtns();
 
   vm.tool = 'neighborPoints';
-  vm.color = '';
+  vm.color = 'rgb(0,0,0)';
   vm.lineWith = '';
 
   //functions
@@ -44,11 +44,14 @@ function DrawCtrl(drawingFactory, buttonsFactory) {
   }
 
   colorpicker.onblur = function(e) {
+    drawingFactory.setColor(vm.color);
     ctx.strokeStyle = vm.color;
     ctx.fillStyle = vm.color;
+    drawingFactory.setColor(vm.color);
   };
 
   lineWithSlider.onmouseup = function(e) {
     ctx.lineWidth = vm.lineWith;
   };
+
 }

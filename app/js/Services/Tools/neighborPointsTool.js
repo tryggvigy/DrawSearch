@@ -22,9 +22,9 @@ function neighborPointsTool(drawingFactory) {
     };
 
     el.onmousemove = function(e) {
+
       if (!isDrawing) return;
 
-      //ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
       points.push({ x: e.clientX-el.offsetLeft, y: e.clientY-el.offsetTop });
 
       ctx.beginPath();
@@ -39,10 +39,11 @@ function neighborPointsTool(drawingFactory) {
 
         if (d < 1000) {
           ctx.beginPath();
-          ctx.strokeStyle = 'rgba(0,0,0,0.3)';
+          ctx.strokeStyle = drawingFactory.setRgbOpacity(drawingFactory.getColor(), "0.3");
           ctx.moveTo( points[points.length-1].x + (dx * 0.2), points[points.length-1].y + (dy * 0.2));
           ctx.lineTo( points[i].x - (dx * 0.2), points[i].y - (dy * 0.2));
           ctx.stroke();
+          ctx.strokeStyle = drawingFactory.getColor();
         }
       }
     };
