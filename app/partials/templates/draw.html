@@ -8,11 +8,7 @@
 
   <div class="gridButtons">
     <ul>
-      <li popover="Mystery" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
-      <li popover="Will" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
-      <li popover="Be" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
-      <li popover="Added" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
-      <li popover="Later" popover-trigger="mouseenter" class="btn btn-default icon icon-pencil"></li>
+      <li ng-repeat="btn in draw.gridBtns" popover="{{btn.desc}}" popover-trigger="mouseenter" class="btn btn-default icon {{btn.icon}}" ng-click="{{btn.action}}"></li>
     </ul>
   </div>
 

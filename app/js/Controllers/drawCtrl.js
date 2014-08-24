@@ -10,6 +10,7 @@ function DrawCtrl(drawingFactory, buttonsFactory, $scope) {
   var lineWithSlider = document.getElementById('selectLineWith');
 
   vm.topBtns = buttonsFactory.getTopBtns();
+  vm.gridBtns = buttonsFactory.getGridBtns();
 
   vm.tool = 'neighborPoints';
   vm.color = 'rgb(0,0,0)';

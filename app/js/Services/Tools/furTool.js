@@ -1,8 +1,8 @@
 'use strict';
 
-neighborPointsTool.$inject = ['drawingFactory'];
+furTool.$inject = ['drawingFactory'];
 
-function neighborPointsTool(drawingFactory) {
+function furTool(drawingFactory) {
 
   ///////// PRIVATE ///////////
   var el = document.getElementById('myCanvas');
@@ -11,7 +11,7 @@ function neighborPointsTool(drawingFactory) {
   var _drawingFactory = drawingFactory;
 
   /////////// PUBLIC ///////////
-  function getNeighborPointsTool() {
+  function getFurTool() {
     ctx.lineJoin = ctx.lineCap = 'round';
 
     el.onmousedown = function(e) {
@@ -22,7 +22,6 @@ function neighborPointsTool(drawingFactory) {
     };
 
     el.onmousemove = function(e) {
-      
       if (!isDrawing) return;
 
       points.push({ x: drawingFactory.getClickPos(e, el).x, y: drawingFactory.getClickPos(e, el).y});
@@ -37,11 +36,11 @@ function neighborPointsTool(drawingFactory) {
         var dy = points[i].y - points[points.length-1].y;
         var d = dx * dx + dy * dy;
 
-        if (d < 1000) {
+        if (d < 2000 && Math.random() > d / 2000) {
           ctx.beginPath();
           ctx.strokeStyle = drawingFactory.setRgbOpacity(drawingFactory.getColor(), "0.3");
-          ctx.moveTo( points[points.length-1].x + (dx * 0.2), points[points.length-1].y + (dy * 0.2));
-          ctx.lineTo( points[i].x - (dx * 0.2), points[i].y - (dy * 0.2));
+          ctx.moveTo( points[points.length-1].x + (dx * 0.5), points[points.length-1].y + (dy * 0.5));
+          ctx.lineTo( points[points.length-1].x - (dx * 0.5), points[points.length-1].y - (dy * 0.5));
           ctx.stroke();
           ctx.strokeStyle = drawingFactory.getColor();
         }
@@ -55,7 +54,7 @@ function neighborPointsTool(drawingFactory) {
   }
 
   var factory = {
-    neighborPointsTool: getNeighborPointsTool
+    furTool: getFurTool
   };
   return factory;
 }

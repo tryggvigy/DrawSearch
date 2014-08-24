@@ -18,13 +18,13 @@ function pencilTool(drawingFactory) {
     el.onmousedown = function(e) {
       _drawingFactory.saveState(el);
       isDrawing = true;
-      points.push({ x: e.clientX-el.offsetLeft, y: e.clientY-el.offsetTop });
+      points.push({ x: drawingFactory.getClickPos(e, el).x, y: drawingFactory.getClickPos(e, el).y});
     };
 
     el.onmousemove = function(e) {
       if (!isDrawing) return;
 
-      points.push({ x: e.clientX-el.offsetLeft, y: e.clientY-el.offsetTop });
+      points.push({ x: drawingFactory.getClickPos(e, el).x, y: drawingFactory.getClickPos(e, el).y});
 
       ctx.beginPath();
       ctx.moveTo(points[0].x, points[0].y);

@@ -13,6 +13,13 @@ function drawingFactory() {
   }
 
   ///////// PUBLIC ///////////
+  function getClickPos(evt, canvas) {
+    return {
+      x: evt.clientX - canvas.offsetLeft + window.pageXOffset,
+      y: evt.clientY - canvas.offsetTop + window.pageYOffset
+    };
+  }
+
   function clearCanvas(canvas) {
     var ctx = canvas.getContext('2d');
     currState++;
@@ -72,6 +79,7 @@ function drawingFactory() {
   }
 
   var factory = {
+    getClickPos: getClickPos,
     clearCanvas: clearCanvas,
     saveState: saveState,
     undoState: undoState,

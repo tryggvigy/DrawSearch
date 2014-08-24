@@ -14,6 +14,7 @@ angular
   .factory('pencilTool', pencilTool)
   .factory('neighborPointsTool', neighborPointsTool)
   .factory('squareTool', squareTool)
+  .factory('furTool', furTool)
 
   //3rd-party
 

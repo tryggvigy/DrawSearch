@@ -13,21 +13,22 @@ function squareTool(drawingFactory) {
   //////// PUBLIC /////////
   function getSquareTool() {
 
-
     el.onmousedown = function(e) {
       _drawingFactory.saveState(el);
       isDrawing = true;
-      startPoint.x = e.clientX-el.offsetLeft;
-      startPoint.y = e.clientY-el.offsetTop;
+
+      startPoint.x = drawingFactory.getClickPos(e, el).x;
+      startPoint.y = drawingFactory.getClickPos(e, el).y;
     };
 
     el.onmousemove = function(e) {
       if (!isDrawing) return;
-      currPoint.x = e.clientX-el.offsetLeft;
-      currPoint.y = e.clientY-el.offsetTop;
+
+      currPoint.x = drawingFactory.getClickPos(e, el).x;
+      currPoint.y = drawingFactory.getClickPos(e, el).y;
+
       var rectWidth = currPoint.x-startPoint.x;
       var rectHeight = currPoint.y-startPoint.y;
-
 
       ctx.fillRect(startPoint.x, startPoint.y, rectWidth, rectHeight );
     };

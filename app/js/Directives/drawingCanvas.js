@@ -7,7 +7,7 @@ function dsDrawing (drawingFactory, toolsFactory) {
     restruct: 'A',
     link: function(scope, element, attrs) {
 
-      scope.$watch('draw.tool', function(newTool, oldTool) {
+      scope.$watch('draw.tool', function(newTool) {
         toolsFactory.setTool(newTool);
       });
     }

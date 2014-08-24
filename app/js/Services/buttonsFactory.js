@@ -9,18 +9,6 @@ function buttonsFactory() {
 
   ///////// PRIVATE ///////////
   var _topBtns = [{
-    desc: 'Pencil',
-    icon: 'icon-pencil',
-    action: "draw.setTool('pencil')"
-  }, {
-    desc: 'Fancy Brush',
-    icon: 'icon-pen',
-    action: "draw.setTool('neighborPoints')"
-  }, {
-    desc: 'Box Drawing',
-    icon: 'icon-box',
-    action: "draw.setTool('square')"
-  }, {
     desc: 'New',
     icon: 'icon-new',
     action: "draw.clearCanvas()"
@@ -34,14 +22,37 @@ function buttonsFactory() {
     action: "draw.redoState()"
   }];
 
+  var _gridBtns = [{
+    desc: 'Pencil',
+    icon: 'icon-pencil',
+    action: "draw.setTool('pencil')"
+  }, {
+    desc: 'Web Brush',
+    icon: 'icon-pen',
+    action: "draw.setTool('neighborPoints')"
+  }, {
+    desc: 'Box Drawing',
+    icon: 'icon-box',
+    action: "draw.setTool('square')"
+  }, {
+    desc: 'Fur',
+    icon: 'icon-pencil',
+    action: "draw.setTool('fur')"
+  }];
+
   /////////// PUBLIC //////////////
   function getTopBtns() {
     return _topBtns;
   }
 
+  function getGridBtns() {
+    return _gridBtns;
+  }
+
 
   var factory = {
-    getTopBtns: getTopBtns
+    getTopBtns: getTopBtns,
+    getGridBtns: getGridBtns
   };
   return factory;
 }

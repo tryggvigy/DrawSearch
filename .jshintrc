@@ -24,7 +24,8 @@
 
     "pencilTool" : true,
     "neighborPointsTool" : true,
-    "squareTool": true
+    "squareTool": true,
+    "furTool": true
 
 
   }
